@@ -1,0 +1,146 @@
+/* pages/listdetail/listdetail.wxss */
+.bg {
+  height: 600px;
+  text-align: center;
+  line-height: 600px;
+}
+
+.bg-blur {
+  float: left;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  -webkit-filter: blur(15px);
+  -moz-filter: blur(15px);
+  -o-filter: blur(15px);
+  -ms-filter: blur(15px);
+  filter: blur(15px);
+}
+
+.contain {
+  display: flex;
+  flex-direction: column;
+  position:absolute;
+  width: 100%;
+}
+
+.title-box {
+  display: flex;
+  flex-direction: row;
+  height: 400rpx;
+  align-items: center;
+  background: #eee;
+}
+.title-img{
+  width: 290rpx;
+  height: 290rpx;
+  border-radius: 5px;
+  margin-left: 5%;
+}
+
+.name-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 380rpx;
+  margin-left: 20rpx;
+}
+.title-name{
+  margin-bottom: 20rpx;
+}
+.title-description{
+  font-size: 13px;
+  padding: 5rpx;
+  color: rgb(133, 131, 131);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+}
+
+.content{
+  background-color: #eee;
+  border-radius: 15px 15px 0 0;
+}
+
+
+/* 歌曲 */
+.content-box{
+  margin-top: 3%;
+  margin-left: 3%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 20rpx;
+}
+.song-box{
+  position: relative;
+  margin-left: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 150rpx;
+  margin-bottom: 10rpx;
+}
+.song-box image {
+  position: absolute;
+  top: -20%;
+  left: 20rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+}
+.content-num{
+  width: 20rpx;
+  height: 15rpx;
+  line-height: 15rpx;
+  text-align: center;
+  color: gray;
+  font-size: 20px;
+}
+.song-artist{
+  color: gray;
+  font-size: 13px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 400rpx;
+}
+.songs-play{
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 5%;
+}
+
+/* 播放全部 */
+.playall-box{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 2%;
+  margin-top: 2%;
+  height: 70rpx;
+  overflow: hidden;
+}
+.playall-img{
+  width: 55rpx;
+  height: 55rpx;
+  margin-right: 10rpx;
+}
+.playall-coll{
+  margin-left: 280rpx;
+  padding-right: 10rpx;
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 20px;
+  background-color: #E54132;
+  text-align: center;
+  color: white;
+}
+.listScroll {
+  height: calc(100vh - 500rpx);
+}

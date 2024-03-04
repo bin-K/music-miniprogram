@@ -1,0 +1,24 @@
+	<view class="title">歌单推荐</view>
+	<view class="contain">
+	    <block wx:for="{{list}}" wx:key="id" wx:if="{{index < 3}}">
+	        <view class="list">
+	            <view class="img-box">
+	                <image class="list-img" mode="cover" src="{{item.coverImgUrl}}"  data-id="{{item.id}}" bindtap="toPersonalized"></image>
+	                <view class="tips">▷{{playCount[index]}}</view>
+	            </view>
+	            <view class="list-name"  data-id="{{item.id}}" bindtap="toPersonalized">{{item.name}}</view>
+	        </view>
+	    </block>
+	</view>
+	<view class="title">更多歌单</view>
+	<view class="contain">
+	    <block wx:for="{{list}}" wx:key="id" wx:if="{{index >= 3}}">
+	        <view class="list">
+	            <view class="img-box">
+	                <image class="list-img" mode="cover" src="{{item.coverImgUrl}}"  data-id="{{item.id}}" bindtap="toPersonalized"></image>
+	                <view class="tips">▷{{playCount[index]}}</view>
+	            </view>
+	            <view class="list-name"  data-id="{{item.id}}" bindtap="toPersonalized">{{item.name}}</view>
+	        </view>
+	    </block>
+	</view>

@@ -1,0 +1,69 @@
+<view class="songDetailContainer">
+  <!-- <view class="author">{{song.ar[0].name}}</view> -->
+  <view class="circle"></view>
+  <image class="needle {{isPlay && 'needleRotate'}}" src="/static/images/song/needle.png"></image>
+  <view class="discContainer {{isPlay && 'discAnimation'}}">
+    <image class="disc" src="/static/images/song/disc.png"></image>
+    <image class="musicImg" src="{{song.al.picUrl}}"></image>
+  </view>
+  <view class="author">{{(song.ar[0].name?song.ar[0].name+'--':'')+(song.name?song.name:'')}}</view>
+  <!-- 进度条控制区域 -->
+  <view class="progressControl">
+    <text>{{currentTime}}</text>
+    <!-- 总进度条 -->
+    <view class="progress-box">
+      <slider class="progress" value="{{percent}}" selected-color="#E54132" block-size="12" bindchange="sliderChange"></slider>
+    </view>
+    <text>{{durationTime}}</text>
+  </view>
+  <!-- 底部控制播放区域 -->
+  <view class="musicControl">
+    <text class="iconfont {{playMode}}" data-index="{{temp}}" bindtap='toggle'></text>
+    <text class="iconfont icon-shangyishou" id="pre" bindtap="handleSwitch"></text>
+    <text class="iconfont {{isPlay?'icon-zanting': 'icon-bofang'}} big" bindtap="handleMusicPlay"></text>
+    <text class="iconfont icon-next" id="next" bindtap="handleSwitch"></text>
+    <text class="iconfont icon-iconsMusicyemianbofangmoshiPlayList" bindtap="playList" data-statu="open"></text>
+  </view>
+  <!-- 遮罩层 -->
+  <view class="drawer_screen" bindtap="playList" data-statu="close" wx:if="{{showModalStatus}}"></view>
+  <!-- 弹窗内容 -->
+  <!-- 使用animation属性指定需要执行的动画 -->
+  <view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+    <!-- drawer content -->
+    <swiper class="swiper" current="1" indicator-dots="true" previous-margin="50rpx" next-margin="50rpx">
+      <swiper-item>
+        <view class="drawer_content">
+          <view class="content_box">
+            <text class="content_text">当前播放</text>
+          </view>
+          <block wx:for="{{playList}}" wx:key="id">
+            <view class="nearly_box" style="color:#E54132" wx:if="{{item.id ==  musicId}}" bindtap="currentPlayBtn" data-index="{{index}}">
+              <view class="nearly_songname">{{item.name}}</view>
+              <view class="nearly_artist" wx:if="{{(item.artists.length?item.artists.length:item.ar.length) == 1}}" style="color:#E54132">
+                — {{(item.artists[0].name?item.artists[0].name:item.ar[0].name)}}
+              </view>
+              <view class="nearly_artist" wx:if="{{(item.artists.length?item.artists.length:item.ar.length) == 2}}" style="color:#E54132">
+                — {{(item.artists[0].name?item.artists[0].name:item.ar[0].name)}}/{{(item.artists[1].name?item.artists[1].name:item.ar[1].name)}}
+              </view>
+              <view class="nearly_artist" wx:if="{{(item.artists.length?item.artists.length:item.ar.length) == 3}}" style="color:#E54132">
+                —  {{(item.artists[0].name?item.artists[0].name:item.ar[0].name)}}/{{(item.artists[1].name?item.artists[1].name:item.ar[1].name)}}/{{(item.artists[2].name?item.artists[2].name:item.ar[2].name)}}
+              </view>
+            </view>
+            <view class="nearly_box" wx:if="{{item.id !=  musicId}}" bindtap="currentPlayBtn" data-index="{{index}}">
+              <view class="nearly_songname">{{item.name}}</view>
+              <view class="nearly_artist" wx:if="{{(item.artists.length?item.artists.length:item.ar.length) == 1}}">
+                —  {{(item.artists[0].name?item.artists[0].name:item.ar[0].name)}}
+              </view>
+              <view class="nearly_artist" wx:if="{{(item.artists.length?item.artists.length:item.ar.length) == 2}}">
+                —  {{(item.artists[0].name?item.artists[0].name:item.ar[0].name)}}/{{(item.artists[1].name?item.artists[1].name:item.ar[1].name)}}
+              </view>
+              <view class="nearly_artist" wx:if="{{(item.artists.length?item.artists.length:item.ar.length) == 3}}">
+                —  {{(item.artists[0].name?item.artists[0].name:item.ar[0].name)}}/{{(item.artists[1].name?item.artists[1].name:item.ar[1].name)}}/{{(item.artists[2].name?item.artists[2].name:item.ar[2].name)}}
+              </view>
+            </view>
+          </block>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

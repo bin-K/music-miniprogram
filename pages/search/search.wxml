@@ -1,0 +1,78 @@
+<view class="searchContainer">
+  <!-- 头部搜索区域 -->
+  <view class="header">
+    <view class="searchInput">
+      <text class="iconfont icon-search1 searchIcon"></text>
+      <input type="text" value="{{searchContent}}" placeholder="{{placeholderContent}}" placeholder-class="placeholder" bindinput="handleInputChange" />
+      <text class="clear" bindtap="clearSearchContent" hidden="{{!searchContent}}">×</text>
+    </view>
+    <text class="confirm" bindtap="searchSong">搜索</text>
+  </view>
+  <block wx:if='{{suggestList.length}}'>
+    <!-- 搜索结果展示 -->
+    <view class="findsongs" wx:if="{{isSearch}}">
+      <view class="text-box">
+        <text class="goodsongs-text">为您查询到以下结果：</text>
+      </view>
+      <block wx:for="{{searchList}}" wx:key="id" wx:for-index="i" hidden="{{notFound}}">
+        <view class="songs-box"  bindtap="playBtn" data-id="{{item.id}}" data-index="{{i}}" data-songname="{{item.name}}" data-artist="{{item.artists}}" data-img="{{songPic[i]}}">
+          <image class="songs-img" src="{{songPic[i]}}" mode="cover"></image>
+          <view class="songs-mes">
+            <view class="sq-box">
+              <view class="name-box">
+                <view class="songs-name">{{item.name}}</view>
+              </view>
+            </view>
+            <view wx:if="{{item.artists.length == 1}}">
+              <view class="songs-author">— {{item.artists[0].name}}</view>
+            </view>
+            <view wx:if="{{item.artists.length == 2}}">
+              <view class="songs-author">— {{item.artists[0].name}}/{{item.artists[1].name}}</view>
+            </view>
+            <view wx:if="{{item.artists.length == 3}}">
+              <view class="songs-author">
+                — {{item.artists[0].name}}/{{item.artists[1].name}}/{{item.artists[2].name}}
+              </view>
+            </view>
+          </view>
+          <image class="songs-play" mode="cover" src="/static/images/play.png"></image>
+        </view>
+      </block>
+      <view class="notfound" hidden="{{!notFound}}">
+        <image src="/static/images/notfound.png" class="notfound-img"></image>
+        <view class="notfound-text">暂时找不到该歌曲...</view>
+      </view>
+    </view>
+    <!-- 搜索内容展示 -->
+    <view class="showSearchContent" wx:else>
+      <view class="searchContent">搜索内容: {{searchContent}}</view>
+      <view class="searchList">
+        <view class="searchItem" wx:for="{{suggestList}}"  wx:key="id" bindtap="clicksearchContent">
+          <text class="iconfont icon-search1"></text>
+          <text class="content">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <!-- 搜索历史记录 -->
+    <view class="history" wx:if="{{historyList.length}}">
+      <view class="title">历史</view>
+      <view class="historyItem" wx:for="{{historyList}}" data-index="{{index}}" wx:key="item" bindtap="clickHistory">{{item}}</view>
+      <!-- 删除 -->
+      <text class="iconfont icon-shanchu delete" bindtap="deleteSearchHistory"></text>
+    </view>
+    <!-- 热搜榜 -->
+    <view class="hotContainer">
+      <view class="title">热搜榜</view>
+      <!-- 热搜列表 -->
+      <view class="hotList">
+        <view class="hotItem" wx:for="{{hotList}}" data-index="{{index}}" bindtap="clickHotList" wx:key="searchWord">
+          <text class="order">{{index + 1}}</text>
+          <text>{{item.searchWord}}</text>
+          <image class="iconImg" wx:if="{{item.iconUrl}}" src="{{item.iconUrl}}"></image>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

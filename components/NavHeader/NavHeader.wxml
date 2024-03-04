@@ -1,0 +1,8 @@
+<view class="header">
+    <text class="title">{{title}}</text>
+    <view>
+        <text>{{nav}}</text>
+        <text wx:if="{{title === '推荐歌单'}}" class="more"  bindtap="toPlayList">查看更多</text>
+        <text wx:else class="more" bindtap="toTopList">查看更多</text>
+    </view>
+</view>

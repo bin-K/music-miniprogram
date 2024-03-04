@@ -1,0 +1,43 @@
+.contain{
+  width: 96%;
+  margin-left: 2%;
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.title{
+  font-weight:bold;
+  font-size: 17px;
+  margin-left: 40rpx;
+  margin-top: 3%;
+}
+
+/* listbox */
+.list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20rpx;
+}
+.list-img{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 5px;
+}
+.list-name{
+  font-size: 14px;
+  max-width: 200rpx;
+}
+.tips{
+  font-size: 13px;
+  position: absolute;
+  margin-top: -195rpx;
+  margin-left: 10rpx;
+  padding: 4rpx 10rpx;
+  color: white;
+  background: rgba(0,0,0,.4);
+  border-radius: 10rpx;
+}

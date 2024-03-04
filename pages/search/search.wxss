@@ -1,0 +1,259 @@
+/* pages/search/search.wxss */
+.searchContainer {
+  padding: 0 20rpx;
+}
+.header {
+  display: flex;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 10rpx 0;
+}
+
+.searchInput {
+  position: relative;
+  flex: 1;
+  background: rgba(237, 237, 237, 0.3);
+  border-radius: 30rpx;
+}
+
+.clear {
+  position: absolute;
+  right: 30rpx;
+  z-index: 10;
+  top: 0;
+  font-size: 30rpx;
+
+}
+.confirm {
+  width: 100rpx;
+  text-align: center;
+}
+
+
+.searchIcon {
+  position: absolute;
+  left: 15rpx;
+}
+.searchInput input {
+  margin-left: 50rpx;
+  height: 60rpx
+}
+.placeholder{
+  /*color: #d43c33;*/
+  font-size: 28rpx;
+}
+
+
+/* 热搜榜 */
+.hotContainer {
+  margin-top: 30rpx;
+
+}
+.hotContainer .title {
+  font-size: 28rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.hotList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hotItem {
+  width: 50%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 26rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical; /*设置对其模式*/
+  -webkit-line-clamp: 2; /*设置多行的行数*/
+}
+
+.hotItem .order {
+  margin: 0 10rpx;
+}
+
+
+.hotItem .iconImg {
+  width: 35rpx;
+  height: 20rpx;
+  margin-left: 10rpx;
+}
+
+
+
+/* 搜索内容展示 */
+.searchContent {
+  color: #d43c33;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 24rpx;
+  border-bottom: 1rpx solid #d43c33;
+
+}
+
+.searchItem {
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+}
+
+
+.searchItem .content {
+  flex: 1;
+  margin-left: 20rpx;
+  border-bottom: 1rpx solid #eee;
+  font-size: 26rpx
+}
+
+
+/* 搜索历史 */
+.history {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  line-height:  50rpx;
+  margin: 20rpx 0;
+}
+
+
+.history .title {
+  font-size: 28rpx;
+  height: 50rpx;
+
+}
+
+.history .historyItem {
+  height: 50rpx;
+  font-size: 26rpx;
+  background: #ededed;
+  margin-left: 20rpx;
+  padding: 0 30rpx;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.history .delete {
+  position: absolute;
+  bottom: 10rpx;
+  right: 15rpx;
+  font-size: 36rpx;
+}
+
+/* 找到歌曲 */
+.findsongs{
+  display: flex;
+  flex-direction: column;
+  width: 96%;
+  padding-bottom: 5%;
+  margin-top: 5px;
+  margin-left: 2%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.text-box{
+  display: flex;
+  flex-direction: row;
+  margin-top: 2%;
+  margin-left: 10px;
+}
+
+.goodsongs-img{
+  width: 35px;
+  height: 35px;
+}
+.goodsongs-text{
+  margin-top: 8px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+/* 歌曲栏 */
+.songs-box{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 3%;
+}
+.songs-mes{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 5px;
+}
+.sq-box{
+  display: flex;
+  flex-direction: row;
+}
+
+.songs-img{
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+}
+.songs-sqimg{
+  width: 25px;
+  height: 20px;
+  margin-left: 5px;
+}
+
+.songs-name{
+  width: auto;
+  max-width: 200px;
+  white-space: nowrap; 
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.name-box{
+  width: 230px;
+  display: flex;
+  flex-direction: row;
+}
+
+.songs-author{
+  color: gray;
+  font-size: 13px;
+  margin-left: 10px;
+  width: 200px;
+  white-space: nowrap; 
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.songs-play{
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 5%;
+}
+
+
+/* 找不到歌曲 */
+.notfound{
+  margin-top: 5%;
+  margin-left: 10%;
+  display: flex;
+  align-items: center;
+}
+
+.notfound-img{
+  width: 100px;
+  height: 100px;
+}
+
+.notfound-text{
+  font-weight: bold;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+<view class="contain">
+    <view class="title-box">
+        <image class="title-img" src="{{coverImgUrl}}"></image>
+        <view class="name-box">
+            <view class="title-name">{{titleName}}</view>
+            <view class="title-description">{{description}}</view>
+        </view>
+    </view>
+    <view class="playall-box">
+        <image class="playall-img" src="/static/images/playall.png"></image>
+        <view class="playall-text">
+            播放全部
+            <text style="color:gray;font-size:13px;">(共{{listDetail.length}}首)</text>
+        </view>
+        <view class="playall-coll">＋ 收藏</view>
+    </view>
+    <scroll-view scroll-y class="listScroll">
+        <view class="content-box" wx:for="{{listDetail}}" wx:key="id" wx:for-index="i"  bindtap="playOne" data-index="{{i}}" data-id="{{item.id}}">
+            <view class="content-num">{{i+1}}</view>
+            <view class="song-box">
+                <image src="{{item.al.picUrl}}"></image>
+                <view class="song-name">{{item.name}}</view>
+                <view class="song-artist" wx:if="{{item.ar.length == 1}}">
+                    {{item.ar[0].name}} —{{item.al.name}}
+                </view>
+                <view class="song-artist" wx:if="{{item.ar.length == 2}}">
+                    {{item.ar[0].name}}/{{item.ar[1].name}} —{{item.al.name}}
+                </view>
+                <view class="song-artist" wx:if="{{item.ar.length == 3}}">
+                    {{item.ar[0].name}}/{{item.ar[1].name}}/{{item.ar[2].name}} —{{item.al.name}}
+                </view>
+                <view class="song-artist" wx:if="{{item.ar.length == 4}}">
+                    {{item.ar[0].name}}/{{item.ar[1].name}}/{{item.ar[2].name}}/{{item.ar[3].name}} —{{item.al.name}}
+                </view>
+            </view>
+            <image class="songs-play" mode="cover" src="/static/images/play.png" bindtap="playBtn" data-id="{{item.id}}"></image>
+        </view>
+    </scroll-view>
+</view>
